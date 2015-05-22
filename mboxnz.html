@@ -84,7 +84,7 @@ var map = L.mapbox.map('map', 'shravan1991.9bde9ec1', { zoomControl: false })
 // create the initial directions object, from which the layer
 // and inputs will pull data.
 var directions = L.mapbox.directions({
-    profile: 'mapbox.driving'
+   // profile: 'mapbox.driving'
 });
 
 var directionsLayer = L.mapbox.directions.layer(directions)
@@ -92,8 +92,6 @@ var directionsLayer = L.mapbox.directions.layer(directions)
 
 var directionsInputControl = L.mapbox.directions.inputControl('inputs', directions)
     .addTo(map);
-
-
 
 var directionsErrorsControl = L.mapbox.directions.errorsControl('errors', directions)
     .addTo(map);
