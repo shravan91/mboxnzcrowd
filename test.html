@@ -67,6 +67,8 @@ var map = L.mapbox.map('map', 'shravan1991.9bde9ec1', {
     zoomControl: false
 }).setView([40, -74.50], 9);
 
+new L.Control.Zoom({ position: 'topright' }).addTo(map);
+
 // move the attribution control out of the way
 map.attributionControl.setPosition('bottomleft');
 
