@@ -2,19 +2,19 @@
 <html>
 <head>
 <meta charset=utf-8 />
-<title>Mapbox Hackday project</title>
+<title>Driving directions</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
 <style>
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
-
 </style>
 </head>
 <body>
 
-	<style>
+
+<style>
 #inputs,
 #errors,
 #directions {
@@ -54,36 +54,25 @@
 <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.1.0/mapbox.directions.js'></script>
 <link rel='stylesheet' href='https://api.tiles.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.1.0/mapbox.directions.css' type='text/css' />
 
-
-<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-hash/v0.2.1/leaflet-hash.js'></script>
-<!--<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-minimap/v1.0.0/Control.MiniMap.js'></script>
-<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-minimap/v1.0.0/Control.MiniMap.css' rel='stylesheet' />-->
-
-
 <div id='map'></div>
 <div id='inputs'></div>
 <div id='errors'></div>
 <div id='directions'>
   <div id='routes'></div>
   <div id='instructions'></div>
+</div>
 <script>
 L.mapbox.accessToken = 'pk.eyJ1Ijoic2hyYXZhbjE5OTEiLCJhIjoiMTdBSHFPbyJ9.TOW1Gw15YndOtIHl3_oiKw';
-var map = L.mapbox.map('map', 'shravan1991.9bde9ec1', { zoomControl: false })
-    .setView([-43.5494, -187.3207], 6)
-    new L.Control.Zoom({ position: 'topright' }).addTo(map);
-    /*.on('ready', function() { new L.Control.MiniMap(L.mapbox.tileLayer('shravan1991.cd791dbd'))
-            .addTo(map);	
-        });*/
-    var hash = L.hash(map);
+var map = L.mapbox.map('map', 'mapbox.streets', {
+    zoomControl: false
+}).setView([40, -74.50], 9);
 
-    //directions
-    map.attributionControl.setPosition('bottomleft');
+// move the attribution control out of the way
+map.attributionControl.setPosition('bottomleft');
 
 // create the initial directions object, from which the layer
 // and inputs will pull data.
-var directions = L.mapbox.directions({
-   // profile: 'mapbox.driving'
-});
+var directions = L.mapbox.directions();
 
 var directionsLayer = L.mapbox.directions.layer(directions)
     .addTo(map);
