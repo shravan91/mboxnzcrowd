@@ -68,7 +68,7 @@
   <div id='instructions'></div>
 <script>
 L.mapbox.accessToken = 'pk.eyJ1Ijoic2hyYXZhbjE5OTEiLCJhIjoiMTdBSHFPbyJ9.TOW1Gw15YndOtIHl3_oiKw';
-var map = L.mapbox.map('map', 'shravan1991.9bde9ec1')
+var map = L.mapbox.map('map', 'shravan1991.9bde9ec1', { zoomControl: false })
     .setView([-43.5494, -187.3207], 6)
     new L.Control.Zoom({ position: 'topright' }).addTo(map);
     /*.on('ready', function() { new L.Control.MiniMap(L.mapbox.tileLayer('shravan1991.cd791dbd'))
@@ -81,9 +81,7 @@ var map = L.mapbox.map('map', 'shravan1991.9bde9ec1')
 
 // create the initial directions object, from which the layer
 // and inputs will pull data.
-var directions = L.mapbox.directions({
-   // profile: 'mapbox.driving'
-});
+var directions = L.mapbox.directions();
 
 var directionsLayer = L.mapbox.directions.layer(directions)
     .addTo(map);
